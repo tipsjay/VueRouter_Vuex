@@ -12,6 +12,15 @@
             display: inline-block;
             margin: 10px;
         }
+        .red {
+            background-color:red;
+        }
+        .green {
+            background-color:green;
+        }
+        .blue {
+            background-color:blue;
+        }
     </style>
 </head>
 
@@ -20,8 +29,9 @@
         <script src="vue.js"></script>
 
         <div id="app">
-            <div class="demo"></div>
-            <div class="demo"></div>
+            <div class="demo" @click="attachedRed = !attachedRed"
+            :class="divClasses"></div>
+            <div class="demo" :class="{red: attachedRed}"></div>
             <div class="demo"></div>
         </div>
         
@@ -32,10 +42,15 @@
                 new Vue({
                     el: '#app',
                     data: {
-                          
+                          attachedRed : false
                     },
-                    methods: {
-                       
+                    computed: {
+                        divClasses: function(){
+                            return {
+                                red: this.attachedRed,
+                                blue: !this.attachedRed
+                            }
+                        }
                     }
                 });
             </script>
