@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>VueJS</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+        <script src="vue.js"></script>
+
+        <div id="app">
+            <button @click="changeLink">Click to Change Link</button>
+            <a :href="link">Link</a>
+        </div>
+        
+         
+        
+</body>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                         link: 'http://google.com' 
+                    },
+                    methods: {
+                       changeLink: function(){
+                           this.link = 'http://apple.com'
+                       }
+                    }
+                });
+            </script>
+</html>
