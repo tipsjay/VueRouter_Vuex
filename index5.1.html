@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>VueJS</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+        .red {
+            background-color:red;
+        }
+        .green {
+            background-color:green;
+        }
+        .blue {
+            background-color:blue;
+        }
+    </style>
+</head>
+
+<body>
+
+        <script src="vue.js"></script>
+
+        <div id="app">
+            <div class="demo"
+            @click="attachedRed = !attachedRed"
+            :class="divClasses"></div>
+            <div class="demo" :class="{red: attachedRed}"></div>
+            <div class="demo" :class="[color, {red: attachedRed}]"></div>
+            <hr>
+            <input type="text" v-model="color">
+        </div>
+        
+         
+        
+</body>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                          attachedRed : false,
+                          color: 'green'
+                    },
+                    computed: {
+                        divClasses: function(){
+                            return {
+                                red: this.attachedRed,
+                                blue: !this.attachedRed
+                            }
+                        }
+                    }
+                });
+            </script>
+</html>
